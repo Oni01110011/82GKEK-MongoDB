@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor  // ✅ Standard-Konstruktor, um Jackson und MongoDB-Probleme zu vermeiden
+@NoArgsConstructor
 @Builder
 @Document(collection = "warehouses")
 public class Warehouse {

@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor  // ✅ Wichtig für Jackson und MongoDB Deserialisierung
+@NoArgsConstructor
 @Document
 public class Product {
     private String productID;
