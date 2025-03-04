@@ -3,26 +3,37 @@ package com.example.middleware.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Builder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor  // ✅ Standard-Konstruktor, um Jackson und MongoDB-Probleme zu vermeiden
+@Builder
 @Document(collection = "warehouses")
 public class Warehouse {
     @Id
     private String warehouseID;
-    private String warehouseName;
-    private String timestamp;
-    private int warehousePostalCode;
-    private String warehouseCity;
-    private String warehouseCountry;
-    private List<Product> productData;
 
-    public Warehouse(String number, String linzBahnhof, String s, int i, String linz, String austria, List<Product> warehouse1Products) {
-    }
+    @Builder.Default
+    private String warehouseName = "Unbekanntes Lager";
+
+    @Builder.Default
+    private String timestamp = "2025-03-04 00:00:00";
+
+    @Builder.Default
+    private int warehousePostalCode = 9999;
+
+    @Builder.Default
+    private String warehouseCity = "Unbekannte Stadt";
+
+    @Builder.Default
+    private String warehouseCountry = "Unbekanntes Land";
+
+    @Builder.Default
+    private List<Product> productData = new ArrayList<>();
 }
-
-

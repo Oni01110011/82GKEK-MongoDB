@@ -1,11 +1,8 @@
-Hier ist das vollständige **Markdown-Protokoll**:
-
-```markdown
 # 📜 Projektprotokoll – Document Oriented Middleware using MongoDB
 **Projektname:** Document Oriented Middleware using MongoDB
 **Autor:** *Bernhard Aichinger-Ganas*
 **Datum:** *04.03.2025*
-**Repository:**
+**Repository:** https://github.com/Oni01110011/82GKEK-MongoDB.git
 
 ---
 
@@ -205,3 +202,33 @@ db.warehouses.find(
 - **AP (Availability & Partition Tolerance)** → **Cassandra, DynamoDB**.
 
 ---
+
+*Produkt hinzufügen:*
+
+
+db.warehouses.updateOne(
+    { _id: "warehouse1" },
+    { $push: { products: { productId: "p10", name: "Schlüssel", category: "Werkzeug", quantity: 50 } } }
+)
+
+
+
+*Bestand aktualisieren:*
+
+
+db.warehouses.updateOne(
+    { "products.productId": "p10" },
+    { $set: { "products.$.quantity": 120 } }
+)
+
+
+
+*Produkt löschen:*
+
+
+db.warehouses.updateOne(
+    { _id: "warehouse1" },
+    { $pull: { products: { productId: "p10" } } }
+)
+
+
