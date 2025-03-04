@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Data
-@NoArgsConstructor  // ✅ WICHTIG: Standard-Konstruktor hinzufügen!
+@NoArgsConstructor
 @Document(collection = "warehouses")
 public class Warehouse {
     @Id

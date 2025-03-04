@@ -7,15 +7,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@NoArgsConstructor  // ✅ WICHTIG: Standard-Konstruktor für Jackson
-@Document(collection = "products")  // ✅ MongoDB-Kollektion angeben
+@NoArgsConstructor
+@Document(collection = "products")
 public class Product {
 
     private String productID;
     private String productName;
     private int productQuantity;
 
-    // ✅ Spezieller Konstruktor für Jackson, falls nötig
     @JsonCreator
     public Product(
             @JsonProperty("productID") String productID,
